@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "523271860636",
+    "firebase_url": "https://androidstudioapp-e04be.firebaseio.com",
+    "project_id": "androidstudioapp-e04be",
+    "storage_bucket": "androidstudioapp-e04be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523271860636:android:f5c3e0e045cbea82",
+        "android_client_info": {
+          "package_name": "com.example.nexer.soldierappv4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523271860636-s6no13i5pkgc3cvddq8d157pmibh3f24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAbYCbEXYtPyICNwL_V7we1D4QFovUtJo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
