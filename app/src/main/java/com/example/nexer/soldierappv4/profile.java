@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class profile extends Fragment {
 
     private Button Logout;
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth2;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Logout = (Button)getView().findViewById(R.id.logoutbutton);
+        firebaseAuth2 = FirebaseAuth.getInstance();
         return inflater.inflate(R.layout.fragment_profile_menu, container, false);
     }
 
@@ -30,8 +31,12 @@ public class profile extends Fragment {
     }
 
     public void onClick(View view){
+
+        Logout = (Button)getView().findViewById(R.id.logoutbutton);
+
         if(view == Logout){
-            firebaseAuth.signOut();
+            firebaseAuth2.signOut();
+            //getActivity().startActivity(new Intent());
         }else{
 
         }
