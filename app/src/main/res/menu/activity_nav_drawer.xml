@@ -5,20 +5,24 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/nav_menu_profile"
+            android:title="Profile" />
+        <item
             android:id="@+id/nav_add"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Add" />
+            android:icon="@drawable/nav_menu_add"
+            android:title="add" />
         <item
             android:id="@+id/nav_update"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/nav_menu_update"
             android:title="Update" />
         <item
             android:id="@+id/nav_delete"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/nav_menu_delete"
             android:title="Delete" />
         <item
             android:id="@+id/nav_preview"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/nav_menu_preview"
             android:title="Preview" />
     </group>
 
@@ -26,11 +30,11 @@
         <menu>
             <item
                 android:id="@+id/nav_locate"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/nav_menu_locate"
                 android:title="Locate" />
             <item
                 android:id="@+id/nav_upload"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/nav_menu_upload"
                 android:title="Upload picture" />
         </menu>
     </item>

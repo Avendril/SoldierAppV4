@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button Login;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private TextView textViewRegister;
 
     private FirebaseAuth firebaseAuth;
 
@@ -40,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         Login = (Button)findViewById(R.id.LoginButton);
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
-        textViewRegister = (TextView)findViewById(R.id.textViewSignIn);
     }
 
     public void onClick(View view){
@@ -69,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             //stopping the function
             return;
         }
-
+        Toast.makeText(this,"I am here!",Toast.LENGTH_SHORT).show();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -77,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             startActivity(new Intent(getApplicationContext(), NavActivity.class));
                         }else{
-
+                            Toast.makeText(LoginActivity.this, "Incorrect password or email", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

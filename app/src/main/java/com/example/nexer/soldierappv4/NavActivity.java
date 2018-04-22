@@ -35,7 +35,7 @@ public class NavActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_add);
+        displaySelectedScreen(R.id.nav_profile);
     }
 
     @Override
@@ -82,6 +82,9 @@ public class NavActivity extends AppCompatActivity
         Fragment fragment = null;
         //initializing the fragment object which is selected
         switch (itemId) {
+            case R.id.nav_profile:
+                fragment = new profile();
+                break;
             case R.id.nav_add:
                 fragment = new add();
                 break;
