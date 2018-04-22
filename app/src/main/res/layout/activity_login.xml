@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/registerscreen"
+            android:id="@+id/userloginscreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="User Registration screen"
+            android:text="User Login screen"
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -45,20 +45,20 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/registerButton"
+            android:id="@+id/LoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:onClick="onClick"
-            android:text="Register User" />
+            android:text="Log in" />
 
         <TextView
-            android:id="@+id/textViewSignIn"
+            android:id="@+id/textViewRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
             android:clickable="true"
-            android:text="Already Registered?Sign in here!"
+            android:text="Register here!"
             android:textAlignment="center"
             android:textColor="#0645AD" />
 

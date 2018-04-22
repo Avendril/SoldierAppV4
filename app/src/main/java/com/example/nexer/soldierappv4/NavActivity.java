@@ -74,33 +74,12 @@ public class NavActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         displaySelectedScreen(item.getItemId());
-        // Handle navigation view item clicks here.
-//        int id = item.getItemId();
-//
-//        if (id == R.id.nav_add) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_update) {
-//
-//        } else if (id == R.id.nav_delete) {
-//
-//        } else if (id == R.id.nav_preview) {
-//
-//        } else if (id == R.id.nav_locate) {
-//
-//        } else if (id == R.id.nav_upload) {
-//
-//        }
-//
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private void displaySelectedScreen(int itemId) {
-
         //creating fragment object
         Fragment fragment = null;
-
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_add:
