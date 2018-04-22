@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onClick(View view){
         if(view == Login){
             userLogin();
-        }else if(view == textViewRegister){
+        }else{
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }

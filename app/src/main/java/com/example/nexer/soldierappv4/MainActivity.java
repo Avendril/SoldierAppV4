@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 //        if(firebaseAuth.getCurrentUser() != null){
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), NavActivity.class));
+//           finish();
+//           startActivity(new Intent(getApplicationContext(), NavActivity.class));
 //        }
         registerButton = (Button)findViewById(R.id.registerButton);
 
@@ -81,6 +81,7 @@ public class MainActivity extends Activity {
         if(view == registerButton){
             registerUser();
         }else{
+            finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
     }

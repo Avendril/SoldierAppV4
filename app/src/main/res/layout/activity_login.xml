@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:onClick="onClick"
             android:clickable="true"
-            android:text="Register here!"
+            android:text="No account?Register here!"
             android:textAlignment="center"
             android:textColor="#0645AD" />
 
