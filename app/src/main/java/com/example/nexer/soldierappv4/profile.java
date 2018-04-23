@@ -1,6 +1,7 @@
 package com.example.nexer.soldierappv4;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,8 +24,8 @@ public class profile extends Fragment {
     private FirebaseAuth firebaseAuth2;
     private DatabaseReference databaseReference;
 
-    private Button Logout,Confirm;
-    private EditText editTextName,editTextAddress,editTextAge;
+    private Button Save;
+    private EditText editTextName,editTextSurname,editTextAge,editTextEmail;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile_menu, container, false);
@@ -35,14 +38,25 @@ public class profile extends Fragment {
         firebaseAuth2 = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        Button Logout = (Button)getView().findViewById(R.id.logoutbutton);
+        Save = (Button)getView().findViewById(R.id.Save);
+        editTextName = (EditText)getView().findViewById(R.id.editTextName);
+        editTextSurname = (EditText)getView().findViewById(R.id.editTextSurname);
+        editTextAge = (EditText)getView().findViewById(R.id.editTextAge);
+        editTextEmail = (EditText)getView().findViewById(R.id.editTextEmail);
 
-        Logout.setOnClickListener(new View.OnClickListener() {
+        Save.setOnClickListener(new View.OnClickListener() {
           @Override
             public void onClick(View view) {
-               Toast.makeText(getActivity(), "Logout successful!",Toast.LENGTH_SHORT).show();
-               firebaseAuth2.signOut();
-                getActivity().startActivity(new Intent(getContext(),LoginActivity.class));
+              String name = editTextName.getText().toString().trim();
+              String surname = editTextSurname.getText().toString().trim();
+              String age = editTextAge.getText().toString().trim();
+              String email = editTextEmail.getText().toString().trim();
+              userInfo userInfo = new userInfo(name,surname,age,email);
+
+              FirebaseUser user = firebaseAuth2.getCurrentUser();
+              databaseReference.child(user.getUid()).setValue(userInfo);
+
+              Toast.makeText(getActivity(), "Data saved!",Toast.LENGTH_SHORT).show();
             }
         });
 
