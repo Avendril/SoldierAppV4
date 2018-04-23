@@ -32,10 +32,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
-//        if(firebaseAuth.getCurrentUser() != null){
-//           finish();
-//           startActivity(new Intent(getApplicationContext(), NavActivity.class));
-//        }
+        if(firebaseAuth.getCurrentUser() != null){
+           finish();
+           startActivity(new Intent(getApplicationContext(), NavActivity.class));
+        }
         registerButton = (Button)findViewById(R.id.registerButton);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);

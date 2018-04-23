@@ -31,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-//        if(firebaseAuth.getCurrentUser() != null){
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), NavActivity.class));
-//        }
+        if(firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(getApplicationContext(), NavActivity.class));
+        }
 
         Login = (Button)findViewById(R.id.LoginButton);
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);

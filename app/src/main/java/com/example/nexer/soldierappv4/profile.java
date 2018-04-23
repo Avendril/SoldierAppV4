@@ -18,52 +18,33 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class profile extends Fragment {
 
-
-//    private FirebaseAuth firebaseAuth2;
-//    private DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth2;
+    private DatabaseReference databaseReference;
 
     private Button Logout,Confirm;
     private EditText editTextName,editTextAddress,editTextAge;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_menu,container,false);
-//        firebaseAuth2 = FirebaseAuth.getInstance();
-//        databaseReference = FirebaseDatabase.getInstance().getReference();
-
-//       Logout = (Button)getView().findViewById(R.id.logoutbutton);
-//        editTextName = (EditText)getView().findViewById(R.id.editTextName);
-//        editTextAddress = (EditText)getView().findViewById(R.id.editTextAddress);
-//        editTextAge = (EditText)getView().findViewById(R.id.editTextAge);
-//        Confirm = (Button)getView().findViewById(R.id.confirmButton);
-
-//       Logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//           public void onClick(View view) {
-//              Toast.makeText(getActivity(), "TESTING BUTTON CLICK 1",Toast.LENGTH_SHORT).show();
-//                firebaseAuth2.signOut();
-//                getActivity().startActivity(new Intent(getContext(),LoginActivity.class));
-//            }
-//        });
-
-        return view;
+        return inflater.inflate(R.layout.fragment_profile_menu, container, false);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Profile");
 
+        firebaseAuth2 = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        Button Logout = (Button)getView().findViewById(R.id.logoutbutton);
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+          @Override
+            public void onClick(View view) {
+               Toast.makeText(getActivity(), "Logout successful!",Toast.LENGTH_SHORT).show();
+               firebaseAuth2.signOut();
+                getActivity().startActivity(new Intent(getContext(),LoginActivity.class));
+            }
+        });
 
     }
-
-//    public void onLogout(View view){
-//        if(view == Logout){
-//            firebaseAuth2.signOut();
-//            getActivity().startActivity(new Intent());
-//        }else{
-//
-//        }
-//    }
-
-
 }
