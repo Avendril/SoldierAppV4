@@ -35,7 +35,7 @@ public class NavActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_profile);
+        displaySelectedScreen(R.id.nav_add);
     }
 
     @Override

@@ -67,17 +67,19 @@ public class LoginActivity extends AppCompatActivity {
             //stopping the function
             return;
         }
-        Toast.makeText(this,"I am here!",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"I am here!",Toast.LENGTH_SHORT).show();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            startActivity(new Intent(getApplicationContext(), NavActivity.class));
+                            Toast.makeText(LoginActivity.this, "I am here!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, NavActivity.class));
                         }else{
                             Toast.makeText(LoginActivity.this, "Incorrect password or email", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
 }
