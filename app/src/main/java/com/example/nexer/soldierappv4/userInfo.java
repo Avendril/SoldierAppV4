@@ -7,6 +7,9 @@ package com.example.nexer.soldierappv4;
 public class userInfo {
     public String Name,Surname,Age,Email;
 
+    public userInfo() {
+
+    }
 
     public userInfo(String Name, String Surname, String age, String Email){
         this.Name = Name;
@@ -14,6 +17,8 @@ public class userInfo {
         this.Age = age;
         this.Email = Email;
     }
+
+
 
     public String getName(){
         return this.Name;
@@ -26,5 +31,21 @@ public class userInfo {
     }
     public String getEmail(){
         return this.Email;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setSurname(String surname) {
+        Surname = surname;
+    }
+
+    public void setAge(String age) {
+        Age = age;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 }

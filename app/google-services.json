@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "523271860636-3u5otqa2rqrs20pqf8pdqp8b4eneiuan.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nexer.soldierappv4",
+            "certificate_hash": "f3bf72035bf5d86ac4569f6a4f1da95d02fe1f4d"
+          }
+        },
+        {
           "client_id": "523271860636-s6no13i5pkgc3cvddq8d157pmibh3f24.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523271860636-s6no13i5pkgc3cvddq8d157pmibh3f24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

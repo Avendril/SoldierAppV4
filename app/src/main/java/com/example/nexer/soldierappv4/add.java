@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 public class add extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_add_menu, container, false);
     }
 
