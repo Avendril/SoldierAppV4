@@ -14,4 +14,17 @@ public class userInfo {
         this.Age = age;
         this.Email = Email;
     }
+
+    public String getName(){
+        return this.Name;
+    }
+    public String getSurname(){
+        return this.Surname;
+    }
+    public String getAge(){
+        return this.Age;
+    }
+    public String getEmail(){
+        return this.Email;
+    }
 }
