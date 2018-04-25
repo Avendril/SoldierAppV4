@@ -23,4 +23,13 @@
         completions."
     </string>
     <string name="title_activity_login2">Sign in</string>
+    <string name="title_activity_add">AddActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Metrosexual Fruitcake</item>
+        <item>Other</item>
+    </array>
 </resources>

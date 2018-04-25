@@ -69,9 +69,10 @@ public class MainActivity extends Activity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    Toast.makeText(getApplication(),"User Created!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }else{
-
+                    Toast.makeText(getApplication(),"This user already exists!",Toast.LENGTH_SHORT).show();
                 }
             }
         });

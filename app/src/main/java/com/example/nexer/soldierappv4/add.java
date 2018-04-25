@@ -1,13 +1,16 @@
 package com.example.nexer.soldierappv4;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,12 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class add extends Fragment {
 
-    private EditText editTextName,editTextSurname,editTextAge,editTextEmail;
-    private Button saveButton;
+    EditText editTextName;
+    Button buttonAddUser;
+    Spinner spinnerGender;
 
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
+    DatabaseReference mDBReference;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_add_menu, container, false);
@@ -30,32 +32,38 @@ public class add extends Fragment {
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Add Info");
+        getActivity().setTitle("Add User");
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        mDBReference = FirebaseDatabase.getInstance().getReference("users");
 
-        saveButton = (Button)getView().findViewById(R.id.Save);
         editTextName = (EditText)getView().findViewById(R.id.editTextName);
-        editTextSurname = (EditText)getView().findViewById(R.id.editTextSurname);
-        editTextAge = (EditText)getView().findViewById(R.id.editTextAge);
-        editTextEmail = (EditText)getView().findViewById(R.id.editTextEmail);
+        buttonAddUser = (Button)getView().findViewById(R.id.buttonAddUsers);
+        spinnerGender = (Spinner)getView().findViewById(R.id.spinnerGender);
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        buttonAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = editTextName.getText().toString().trim();
-                String surname = editTextSurname.getText().toString().trim();
-                String age = editTextAge.getText().toString().trim();
-                String email = editTextEmail.getText().toString().trim();
-                userInfo userInfo = new userInfo(name,surname,age,email);
-
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(userInfo);
-
-                Toast.makeText(getActivity(), "Data saved!",Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                addUser();
             }
         });
+    }
 
+    private void addUser(){
+        String name = editTextName.getText().toString().trim();
+        String gender = spinnerGender.getSelectedItem().toString();
+
+        if(!TextUtils.isEmpty(name)){
+           String id = mDBReference.push().getKey();
+           Users users = new Users(id, name, gender);
+           mDBReference.child(id).setValue(users);
+
+           Toast.makeText(getActivity(),"User added",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getActivity(),"Please enter your name",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void toastMessage(String message){
+        Toast.makeText(getActivity(),message ,Toast.LENGTH_SHORT).show();
     }
 }

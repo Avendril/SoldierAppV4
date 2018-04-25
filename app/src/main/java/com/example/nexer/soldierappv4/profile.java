@@ -43,8 +43,7 @@ public class profile extends Fragment {
         firebaseAuth2 = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = mFirebaseDatabase.getReference();
-        FirebaseUser user = firebaseAuth2.getCurrentUser();
-        userID = user.getUid();
+        final FirebaseUser user = firebaseAuth2.getCurrentUser();
 
         mListView = (ListView)getView().findViewById(R.id.listview);
 
@@ -53,26 +52,25 @@ public class profile extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //showData(dataSnapshot);
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    UserInformation uInfo = new UserInformation();
-                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());
-                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getSurname());
-                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getAge());
-                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getEmail());
+                    if(user != null){
+                        String mUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        UserInformation uInfo = new UserInformation();
+                        uInfo.setName(ds.child(mUid).getValue(UserInformation.class).getName()); //set the name
+                        uInfo.setEmail(ds.child(mUid).getValue(UserInformation.class).getEmail()); //set the email
+                        uInfo.setAge(ds.child(mUid).getValue(UserInformation.class).getAge()); //set the phone_num
 
-                    Log.d(TAG, "showData: name:" + uInfo.getName());
-                    Log.d(TAG, "showData: surname:" + uInfo.getSurname());
-                    Log.d(TAG, "showData: age:" + uInfo.getAge());
-                    Log.d(TAG, "showData: email:" + uInfo.getEmail());
+                        //display all the information
+                        Log.d(TAG, "showData: name: " + uInfo.getName());
+                        Log.d(TAG, "showData: email: " + uInfo.getEmail());
+                        Log.d(TAG, "showData: age: " + uInfo.getAge());
 
-                    ArrayList<String> arrayList = new ArrayList<>();
-
-                    arrayList.add(uInfo.getName());
-                    arrayList.add(uInfo.getSurname());
-                    arrayList.add(uInfo.getAge());
-                    arrayList.add(uInfo.getEmail());
-
-                    ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,arrayList);
-                    mListView.setAdapter(adapter);
+                        ArrayList<String> array  = new ArrayList<>();
+                        // array.add(uInfo.getName());
+                        array.add(uInfo.getEmail());
+                        array.add(uInfo.getAge());
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,array);
+                        mListView.setAdapter(adapter);
+                    }
                 }
             }
 
@@ -114,10 +112,10 @@ public class profile extends Fragment {
 //
 //            ArrayList<String> arrayList = new ArrayList<>();
 //
-//            arrayList.add(uInfo.getName());
-//            arrayList.add(uInfo.getSurname());
-//            arrayList.add(uInfo.getAge());
-//            arrayList.add(uInfo.getEmail());
+//            arrayList.OptionsCRUD(uInfo.getName());
+//            arrayList.OptionsCRUD(uInfo.getSurname());
+//            arrayList.OptionsCRUD(uInfo.getAge());
+//            arrayList.OptionsCRUD(uInfo.getEmail());
 //
 //            ArrayAdapter adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,arrayList);
 //            mListView.setAdapter(adapter);

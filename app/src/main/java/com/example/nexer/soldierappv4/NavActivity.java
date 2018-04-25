@@ -3,10 +3,7 @@ package com.example.nexer.soldierappv4;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,7 +19,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class NavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth firebaseAuth;
-    @Override
+
+//    private DatabaseReference databaseReference;
+//    private TextView emailtextnav;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
@@ -30,6 +30,10 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         setSupportActionBar(toolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
+//        databaseReference = FirebaseDatabase.getInstance().getReference();
+//        FirebaseUser user = firebaseAuth.getCurrentUser();
+//        emailtextnav = (TextView)findViewById(R.id.emailtextnav);
+//        emailtextnav.setText(user.getEmail());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,7 +44,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //add this line to display menu1 when the activity is loaded
+        //OptionsCRUD this line to display menu1 when the activity is loaded
         displaySelectedScreen(R.id.nav_add);
     }
 
