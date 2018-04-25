@@ -111,9 +111,6 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
             case R.id.nav_preview:
                 fragment = new preview();
                 break;
-            case R.id.nav_locate:
-                fragment = new locate();
-                break;
             case R.id.nav_upload:
                 fragment = new upload();
                 break;

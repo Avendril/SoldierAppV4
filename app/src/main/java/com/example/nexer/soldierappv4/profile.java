@@ -45,52 +45,40 @@ public class profile extends Fragment {
         databaseReference = mFirebaseDatabase.getReference();
         final FirebaseUser user = firebaseAuth2.getCurrentUser();
 
-        mListView = (ListView)getView().findViewById(R.id.listview);
+//        mListView = (ListView)getView().findViewById(R.id.listview);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //showData(dataSnapshot);
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    if(user != null){
-                        String mUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        UserInformation uInfo = new UserInformation();
-                        uInfo.setName(ds.child(mUid).getValue(UserInformation.class).getName()); //set the name
-                        uInfo.setEmail(ds.child(mUid).getValue(UserInformation.class).getEmail()); //set the email
-                        uInfo.setAge(ds.child(mUid).getValue(UserInformation.class).getAge()); //set the phone_num
-
-                        //display all the information
-                        Log.d(TAG, "showData: name: " + uInfo.getName());
-                        Log.d(TAG, "showData: email: " + uInfo.getEmail());
-                        Log.d(TAG, "showData: age: " + uInfo.getAge());
-
-                        ArrayList<String> array  = new ArrayList<>();
-                        // array.add(uInfo.getName());
-                        array.add(uInfo.getEmail());
-                        array.add(uInfo.getAge());
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,array);
-                        mListView.setAdapter(adapter);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    public void onStart(){
-        super.onStart();;
-        firebaseAuth2.addAuthStateListener(mAuthListener);
-    }
-
-    public void onStop(){
-        super.onStop();;
-        if(mAuthListener != null){
-            firebaseAuth2.removeAuthStateListener(mAuthListener);
-        }
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                //showData(dataSnapshot);
+//                for(DataSnapshot ds : dataSnapshot.getChildren()){
+//                    if(user != null){
+//                        String mUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                        UserInformation uInfo = new UserInformation();
+//                        uInfo.setName(ds.child(mUid).getValue(UserInformation.class).getName()); //set the name
+//                        uInfo.setEmail(ds.child(mUid).getValue(UserInformation.class).getEmail()); //set the email
+//                        uInfo.setAge(ds.child(mUid).getValue(UserInformation.class).getAge()); //set the phone_num
+//
+//                        //display all the information
+//                        Log.d(TAG, "showData: name: " + uInfo.getName());
+//                        Log.d(TAG, "showData: email: " + uInfo.getEmail());
+//                        Log.d(TAG, "showData: age: " + uInfo.getAge());
+//
+//                        ArrayList<String> array  = new ArrayList<>();
+//                        // array.add(uInfo.getName());
+//                        array.add(uInfo.getEmail());
+//                        array.add(uInfo.getAge());
+//                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,array);
+//                        mListView.setAdapter(adapter);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 
     private void toastMessage(String message){

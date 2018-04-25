@@ -29,10 +29,6 @@
     <item android:title="Additional Features">
         <menu>
             <item
-                android:id="@+id/nav_locate"
-                android:icon="@drawable/nav_menu_locate"
-                android:title="Locate" />
-            <item
                 android:id="@+id/nav_upload"
                 android:icon="@drawable/nav_menu_upload"
                 android:title="Upload picture" />

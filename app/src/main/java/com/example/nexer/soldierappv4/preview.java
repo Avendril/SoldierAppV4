@@ -1,11 +1,15 @@
 package com.example.nexer.soldierappv4;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class preview extends Fragment {
 
@@ -16,6 +20,8 @@ public class preview extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("preview menu");
+        getActivity().setTitle("Preview Soldiers");
+
+
     }
 }
