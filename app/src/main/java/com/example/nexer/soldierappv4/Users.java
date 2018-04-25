@@ -8,15 +8,21 @@ public class Users {
 
     String userID;
     String userName;
+    String userSurname;
+    String userAddress;
+    String userNationality;
     String userGender;
 
     public Users(){
 
     }
 
-    public Users(String userID, String userName, String userGender) {
+    public Users(String userID, String userName, String userSurname, String userAddress, String userNationality, String userGender) {
         this.userID = userID;
         this.userName = userName;
+        this.userSurname = userSurname;
+        this.userAddress = userAddress;
+        this.userNationality = userNationality;
         this.userGender = userGender;
     }
 
@@ -36,6 +42,30 @@ public class Users {
         this.userName = userName;
     }
 
+    public String getUserSurname() {
+        return userSurname;
+    }
+
+    public void setUserSurname(String userSurname) {
+        this.userSurname = userSurname;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public String getUserNationality() {
+        return userNationality;
+    }
+
+    public void setUserNationality(String userNationality) {
+        this.userNationality = userNationality;
+    }
+
     public String getUserGender() {
         return userGender;
     }
@@ -43,6 +73,4 @@ public class Users {
     public void setUserGender(String userGender) {
         this.userGender = userGender;
     }
-
-
 }

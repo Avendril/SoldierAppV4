@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class add extends Fragment {
 
-    EditText editTextName;
+    EditText editTextName,editTextSurname,editTextAddress,editTextNationality;
     Button buttonAddUser;
     Spinner spinnerGender;
 
@@ -32,11 +32,15 @@ public class add extends Fragment {
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Add User");
+        getActivity().setTitle("Add Soldier");
 
         mDBReference = FirebaseDatabase.getInstance().getReference("users");
 
         editTextName = (EditText)getView().findViewById(R.id.editTextName);
+        editTextSurname = (EditText)getView().findViewById(R.id.editTextSurname);
+        editTextAddress = (EditText)getView().findViewById(R.id.editTextAddress);
+        editTextNationality = (EditText)getView().findViewById(R.id.editTextNationality);
+
         buttonAddUser = (Button)getView().findViewById(R.id.buttonAddUsers);
         spinnerGender = (Spinner)getView().findViewById(R.id.spinnerGender);
 
@@ -50,17 +54,31 @@ public class add extends Fragment {
 
     private void addUser(){
         String name = editTextName.getText().toString().trim();
+        String surname = editTextSurname.getText().toString().trim();
+        String address = editTextAddress.getText().toString().trim();
+        String nationality = editTextNationality.getText().toString().trim();
         String gender = spinnerGender.getSelectedItem().toString();
 
-        if(!TextUtils.isEmpty(name)){
+        boolean fieldsOK = validate(new EditText[] {editTextName,editTextSurname,editTextAddress,editTextNationality});
+
+        if(fieldsOK){
            String id = mDBReference.push().getKey();
-           Users users = new Users(id, name, gender);
+           Users users = new Users(id, name, surname, address, nationality, gender);
            mDBReference.child(id).setValue(users);
 
            Toast.makeText(getActivity(),"User added",Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getActivity(),"Please enter your name",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Please fill in all the fields!",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private boolean validate(EditText[] fields){
+        for (EditText currentField : fields) {
+            if (currentField.getText().toString().length() <= 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void toastMessage(String message){
