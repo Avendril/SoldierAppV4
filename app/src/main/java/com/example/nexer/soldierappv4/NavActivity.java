@@ -20,20 +20,14 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
 
     FirebaseAuth firebaseAuth;
 
-//    private DatabaseReference databaseReference;
-//    private TextView emailtextnav;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
-//        databaseReference = FirebaseDatabase.getInstance().getReference();
-//        FirebaseUser user = firebaseAuth.getCurrentUser();
-//        emailtextnav = (TextView)findViewById(R.id.emailtextnav);
-//        emailtextnav.setText(user.getEmail());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -44,8 +38,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //OptionsCRUD this line to display menu1 when the activity is loaded
-        displaySelectedScreen(R.id.nav_add);
+        displaySelectedScreen(R.id.nav_profile);
     }
 
     @Override

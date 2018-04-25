@@ -4,35 +4,35 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text=""
+        android:text="Bartek"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:id="@+id/textViewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:text=""
+        android:text="Chmielewski"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:id="@+id/textViewSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:text=""
+        android:text="81 Ard Cluaine"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:id="@+id/textViewAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:text=""
+        android:text="Polish"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:id="@+id/textViewNationality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:text=""
+        android:text="Male"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:id="@+id/textViewGender"
         android:layout_width="match_parent"

@@ -34,11 +34,11 @@ public class UsersList extends ArrayAdapter<Users> {
         TextView textViewGender = (TextView) listViewItem.findViewById(R.id.textViewGender);
 
         Users users = Users.get(position);
-       // textViewName.setText(com.example.nexer.soldierappv4.Users.getUserName());
-       // textViewSurname.setText(com.example.nexer.soldierappv4.Users.getUserSurname());
-       // textViewAddress.setText(com.example.nexer.soldierappv4.Users.getUserAddress());
-       // textViewNationality.setText(com.example.nexer.soldierappv4.Users.getUserNationality());
-       // textViewGender.setText(com.example.nexer.soldierappv4.Users.getUserGender());
+        textViewName.setText(users.getUserName());
+        textViewSurname.setText(users.getUserSurname());
+        textViewAddress.setText(users.getUserAddress());
+        textViewNationality.setText(users.getUserNationality());
+        textViewGender.setText(users.getUserGender());
 
         return listViewItem;
     }
