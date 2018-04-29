@@ -30,7 +30,9 @@ public class preview extends Fragment {
     DatabaseReference databaseReference;
     List<Users> userList;
 
-    private Button deleteButton;
+    @Nullable private Button deleteButton;
+
+    @Nullable private String soldierID1;
 
     @Nullable public static final String User_Name = "userName";
     @Nullable public static final String User_Surname = "userSurname";
@@ -78,17 +80,17 @@ public class preview extends Fragment {
         }
     }
 
-    private void deleteSoldier(String soldierID){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(soldierID);
-
-        databaseReference.removeValue();
-
-        toastMessage("Soldier is removed");
-    }
+//    private void deleteSoldier(String soldierID){
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(soldierID);
+//
+//        databaseReference.removeValue();
+//
+//        toastMessage("Soldier is removed");
+//    }
 
     private void showUpdateDialog(final String soldierID, final String soldierNameString , final String soldierSurname, final String soldierAddress, final String soldierNationality, final String soldierGender){
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
-
+        soldierID1 = soldierID;
         LayoutInflater inflater = getLayoutInflater();
 
         final View dialogView = inflater.inflate(R.layout.updatedialoguedata, null);
@@ -117,6 +119,13 @@ public class preview extends Fragment {
                 }
                }
         });
+
+//        deleteButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                deleteSoldier(soldierID);
+//            }
+//        });
 
         String fusion = soldierNameString + " " + soldierSurname;
         dialogBuilder.setTitle("Update Soldier, " + fusion);
