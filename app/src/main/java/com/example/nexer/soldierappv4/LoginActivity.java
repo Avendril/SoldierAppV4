@@ -36,9 +36,9 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), NavActivity.class));
         }
 
-        Login = (Button)findViewById(R.id.LoginButton);
-        editTextEmail = (EditText)findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+        Login = findViewById(R.id.LoginButton);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
     }
 
     public void onClick(View view){

@@ -39,7 +39,8 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/editTextSurname"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="48dp" />
 
         <EditText
             android:id="@+id/editTextSurname"
@@ -79,7 +80,7 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/Save"
+            app:layout_constraintBottom_toTopOf="@+id/saveButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
 

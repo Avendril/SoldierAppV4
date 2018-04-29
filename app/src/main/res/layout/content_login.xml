@@ -33,7 +33,6 @@
         android:layout_below="@+id/PasswordField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:onClick="OnLogin"
         android:text="Login" />
 
     <ImageView
@@ -43,6 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
-        app:srcCompat="@drawable/frontscreenimage" />
+        app:srcCompat="@drawable/frontscreenimage"
+        android:contentDescription="TODO" />
 
 </RelativeLayout>

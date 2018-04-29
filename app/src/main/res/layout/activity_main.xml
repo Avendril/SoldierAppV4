@@ -60,7 +60,8 @@
             android:clickable="true"
             android:text="Already Registered?Sign in here!"
             android:textAlignment="center"
-            android:textColor="#0645AD" />
+            android:textColor="#0645AD"
+            android:focusable="true" />
 
     </LinearLayout>
 

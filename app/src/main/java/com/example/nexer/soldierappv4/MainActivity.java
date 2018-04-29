@@ -1,7 +1,6 @@
 package com.example.nexer.soldierappv4;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -36,12 +35,12 @@ public class MainActivity extends Activity {
            finish();
            startActivity(new Intent(getApplicationContext(), NavActivity.class));
         }
-        registerButton = (Button)findViewById(R.id.registerButton);
+        registerButton = findViewById(R.id.registerButton);
 
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
-        textViewSignIn = (TextView)findViewById(R.id.textViewSignIn);
+        textViewSignIn = findViewById(R.id.textViewSignIn);
 //
 //        registerButton.setOnClickListener((View.OnClickListener) this);
 //        textViewSignIn.setOnClickListener((View.OnClickListener) this);

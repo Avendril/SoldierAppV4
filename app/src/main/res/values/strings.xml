@@ -32,4 +32,15 @@
         <item>Metrosexual Fruitcake</item>
         <item>Other</item>
     </array>
+
+    <array name="delete">
+        <item>Users</item>
+        <item>Profiles</item>
+    </array>
+
+    <array name="officers">
+        <item>Bartek Chmielewski</item>
+        <item>Jack Cassidy</item>
+        <item>Mary White</item>
+    </array>
 </resources>

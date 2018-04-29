@@ -27,11 +27,11 @@ public class UsersList extends ArrayAdapter<Users> {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.layout_users_list, null, true);
 
-        TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewName);
-        TextView textViewSurname = (TextView) listViewItem.findViewById(R.id.textViewSurname);
-        TextView textViewAddress = (TextView) listViewItem.findViewById(R.id.textViewAddress);
-        TextView textViewNationality = (TextView) listViewItem.findViewById(R.id.textViewNationality);
-        TextView textViewGender = (TextView) listViewItem.findViewById(R.id.textViewGender);
+        TextView textViewName = listViewItem.findViewById(R.id.textViewName);
+        TextView textViewSurname = listViewItem.findViewById(R.id.textViewSurname);
+        TextView textViewAddress = listViewItem.findViewById(R.id.textViewAddress);
+        TextView textViewNationality = listViewItem.findViewById(R.id.textViewNationality);
+        TextView textViewGender = listViewItem.findViewById(R.id.textViewGender);
 
         Users users = Users.get(position);
         textViewName.setText(users.getUserName());
