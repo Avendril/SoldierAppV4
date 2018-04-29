@@ -30,6 +30,8 @@ public class preview extends Fragment {
     DatabaseReference databaseReference;
     List<Users> userList;
 
+    private Button deleteButton;
+
     @Nullable public static final String User_Name = "userName";
     @Nullable public static final String User_Surname = "userSurname";
     @Nullable public static final String User_ID = "userID";
@@ -41,13 +43,16 @@ public class preview extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Preview Soldiers");
+        getActivity().setTitle("Preview/Update Soldier Data");
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         listViewSoldiers = getView().findViewById(R.id.listViewSoldiers);
 
         userList = new ArrayList<>();
         assert listViewSoldiers != null;
+
+        deleteButton = (Button)getView().findViewById(R.id.deleteButton);
+
         if (listViewSoldiers != null) {
             listViewSoldiers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -73,8 +78,16 @@ public class preview extends Fragment {
         }
     }
 
+    private void deleteSoldier(String soldierID){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(soldierID);
+
+        databaseReference.removeValue();
+
+        toastMessage("Soldier is removed");
+    }
+
     private void showUpdateDialog(final String soldierID, final String soldierNameString , final String soldierSurname, final String soldierAddress, final String soldierNationality, final String soldierGender){
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getLayoutInflater();
 
@@ -97,6 +110,7 @@ public class preview extends Fragment {
 
                 if(fieldsOK){
                     updateUser(soldierID, name, surname, address, soldierNationality, soldierGender);
+                    toastMessage("Soldier updated!");
 
                 }else{
                     toastMessage("Please fill in all the fields");

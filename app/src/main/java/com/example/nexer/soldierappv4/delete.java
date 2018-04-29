@@ -31,37 +31,7 @@ public class delete extends Fragment {
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//
-//        databaseReference = FirebaseDatabase.getInstance().getReference("users");
-//
-//        editTextName = (EditText)getView().findViewById(R.id.editTextName);
-//        editTextSurname = (EditText)getView().findViewById(R.id.editTextSurname);
-//
-//        spinner = (Spinner)getView().findViewById(R.id.spinner);
-//        confirm = (Button)getView().findViewById(R.id.confirm);
-//
-//        getActivity().setTitle("delete menu");
 
-//        confirm.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                deleteUser();
-//            }
-//        });
-    }
-
-    public void deleteUser(){
-        String name = editTextName.getText().toString().trim();
-        String surname = editTextSurname.getText().toString().trim();
-
-        boolean fieldsOK = validate(new EditText[] {editTextName,editTextSurname});
-
-        if(fieldsOK){
-
-
-        }else{
-            Toast.makeText(getActivity(),"Please fill in all the fields!",Toast.LENGTH_SHORT).show();
-        }
     }
 
     private boolean validate(EditText[] fields){

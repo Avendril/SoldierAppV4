@@ -39,7 +39,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        displaySelectedScreen(R.id.nav_profile);
+        displaySelectedScreen(R.id.nav_preview);
     }
 
     @Override
@@ -90,18 +90,18 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         Fragment fragment = null;
         //initializing the fragment object which is selected
         switch (itemId) {
-            case R.id.nav_profile:
+           // case R.id.nav_profile:
                 //fragment = new profile();
-                break;
+             //   break;
             case R.id.nav_add:
                 fragment = new add();
                 break;
-            case R.id.nav_update:
-                fragment = new update();
-                break;
-            case R.id.nav_delete:
+            //case R.id.nav_update:
+
+               // break;
+            //case R.id.nav_delete:
                 //fragment = new delete();
-                break;
+              //  break;
             case R.id.nav_preview:
                 fragment = new preview();
                 break;

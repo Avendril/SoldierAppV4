@@ -21,7 +21,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="21dp"
-            android:text="TextView"
+            android:text="Update"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -61,9 +61,38 @@
             android:id="@+id/updateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextAddress"
+            android:layout_alignLeft="@+id/editTextAddress"
+            android:layout_alignRight="@+id/editTextAddress"
+            android:layout_alignStart="@+id/editTextAddress"
             android:layout_below="@+id/editTextAddress"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
             android:text="Update" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/updateButton"
+            android:layout_alignLeft="@+id/updateButton"
+            android:layout_alignRight="@+id/updateButton"
+            android:layout_alignStart="@+id/updateButton"
+            android:onClick="deleteSoldier"
+            android:layout_below="@+id/textView5"
+            android:text="Delete" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/updateButton"
+            android:layout_marginTop="85dp"
+            android:text="Delete"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
