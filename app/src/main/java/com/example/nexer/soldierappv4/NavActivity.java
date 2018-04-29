@@ -91,7 +91,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_profile:
-                fragment = new profile();
+                //fragment = new profile();
                 break;
             case R.id.nav_add:
                 fragment = new add();
@@ -100,7 +100,7 @@ public class NavActivity extends AppCompatActivity implements NavigationView.OnN
                 fragment = new update();
                 break;
             case R.id.nav_delete:
-                fragment = new delete();
+                //fragment = new delete();
                 break;
             case R.id.nav_preview:
                 fragment = new preview();
